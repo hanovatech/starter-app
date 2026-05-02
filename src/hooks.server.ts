@@ -22,9 +22,8 @@ export const setupLocale: Handle = async ({ event, resolve }) => {
 const ALLOWED_ROLES = ['ADMIN', 'EDITOR'] as const;
 
 const guardProtectedRoutes: Handle = async ({ event, resolve }) => {
-  const { pathname } = event.url;
-  const isApi = pathname.startsWith('/api/');
-  const isApp = pathname.startsWith('/admin');
+  const isApi = event.url.pathname.startsWith('/api/');
+  const isApp = event.route.id?.startsWith('/(app)') ?? false;
   if (!isApi && !isApp) return resolve(event);
 
   const user = event.locals.session?.user;
