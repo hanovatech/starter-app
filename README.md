@@ -179,7 +179,7 @@ When starting a new client project from this template:
 | Repo | Purpose |
 |------|---------|
 | [ui-registry](https://github.com/hanovatech/ui-registry) | Reusable UI components (shadcn-style, Layer 2) |
-| [feature-registry](https://github.com/hanovatech/feature-registry) | Full-stack feature templates (documents, billing, email, etc.) |
+| [feature-registry](https://github.com/hanovatech/feature-registry) | Backend feature templates (Prisma, API routes, types) |
 
 ## License
 

@@ -163,7 +163,7 @@ Never hardcode user-facing strings. All UI text goes through `$t` from `$lib/sto
 
 ## Feature Registry
 
-Reusable full-stack features are available at https://hanovatech.github.io/feature-registry/. Each feature provides Prisma schema fragments, API routes, components, types, and i18n keys that get copied into the project and customized.
+Reusable backend features are available at https://hanovatech.github.io/feature-registry/. Each feature provides Prisma schema fragments, API routes, Zod types, utils, and i18n keys that get copied into the project and customized. UI components are always built project-specifically.
 
 Available features: https://hanovatech.github.io/feature-registry/r/index.json
 
