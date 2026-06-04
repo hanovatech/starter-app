@@ -31,7 +31,7 @@
           />
         </div>
         <Button type="submit" class="w-full">{$t.common.login}</Button>
-        <p class="text-muted-foreground text-center text-xs">{$t.auth.login.terms}</p>
+        <p class="text-center text-xs text-muted-foreground">{$t.auth.login.terms}</p>
       </form>
     </Card.Content>
   </Card.Root>

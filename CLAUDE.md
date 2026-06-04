@@ -44,11 +44,16 @@ Always use runes — never legacy Svelte 4 syntax:
 
 ```svelte
 <script lang="ts">
-  interface Props { value: string; onChange?: (v: string) => void; }
+  interface Props {
+    value: string;
+    onChange?: (v: string) => void;
+  }
   let { value, onChange }: Props = $props();
   let count = $state(0);
   const doubled = $derived(count * 2);
-  $effect(() => { /* side effects */ });
+  $effect(() => {
+    /* side effects */
+  });
 </script>
 ```
 
@@ -159,6 +164,7 @@ Never hardcode user-facing strings. All UI text goes through `$t` from `$lib/sto
 <script lang="ts">
   import { t } from '$lib/stores/i18nStore';
 </script>
+
 <p>{$t.common.noData}</p>
 ```
 
@@ -181,7 +187,7 @@ Work happens on branches; `main` is protected and only updated via pull request.
    ```
 
 2. **Commit atomically** following the [Commit Conventions](#commit-conventions) below.
-3. **Open a pull request** into `main`. Keep it focused; the PR description explains the *why*.
+3. **Open a pull request** into `main`. Keep it focused; the PR description explains the _why_.
 4. **Merge via rebase + merge** so each atomic commit lands individually on `main` and history stays linear. Do not squash — squashing would collapse the atomic commits we deliberately keep separate.
 
 ## Commit Conventions
@@ -209,7 +215,7 @@ docs: document date handling convention
 
 - Summary in lower case, no trailing period, ≤ 72 chars
 - Scope is optional — use the affected area (`api`, `auth`, `prisma`, a feature name)
-- Use the body to explain *why*, not *what* (the diff shows the what)
+- Use the body to explain _why_, not _what_ (the diff shows the what)
 - Breaking changes: add `!` after the type/scope (`feat(api)!: ...`) or a `BREAKING CHANGE:` footer
 
 ## Keeping This File Up to Date

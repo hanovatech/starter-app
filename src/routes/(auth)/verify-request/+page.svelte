@@ -16,7 +16,7 @@
 <div class="flex min-h-screen items-center justify-center p-4">
   <Card.Root class="w-full max-w-md">
     <Card.Header class="text-center">
-      <div class="bg-muted mx-auto mb-2 flex size-12 items-center justify-center rounded-full">
+      <div class="mx-auto mb-2 flex size-12 items-center justify-center rounded-full bg-muted">
         <Mail class="size-6" />
       </div>
       <Card.Title>{$t.auth.verifyRequest.heading}</Card.Title>
