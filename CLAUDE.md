@@ -168,6 +168,22 @@ Reusable backend features are available at https://hanovatech.github.io/feature-
 
 Available features: https://hanovatech.github.io/feature-registry/r/index.json
 
+## Development Workflow
+
+Work happens on branches; `main` is protected and only updated via pull request.
+
+1. **Branch off `main`.** Name: `<type>/<short-description>`, optionally with a ticket ID when one exists: `<type>/<TICKET-ID>-<short-description>`. `<type>` matches the commit types below.
+
+   ```
+   feat/credentials-auth
+   fix/list-pagination
+   chore/PROJ-123-bump-prisma
+   ```
+
+2. **Commit atomically** following the [Commit Conventions](#commit-conventions) below.
+3. **Open a pull request** into `main`. Keep it focused; the PR description explains the *why*.
+4. **Merge via rebase + merge** so each atomic commit lands individually on `main` and history stays linear. Do not squash — squashing would collapse the atomic commits we deliberately keep separate.
+
 ## Commit Conventions
 
 Follow [Conventional Commits](https://www.conventionalcommits.org/). Messages are written in **English**, in the imperative mood.
