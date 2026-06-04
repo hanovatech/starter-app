@@ -12,6 +12,8 @@ const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
 
 export default defineConfig(
   includeIgnoreFile(gitignorePath),
+  // Vendored component layers — installed via CLI, do not modify (see CLAUDE.md)
+  { ignores: ['src/lib/components/ui/**', 'src/lib/components/registry/**'] },
   js.configs.recommended,
   ...ts.configs.recommended,
   ...svelte.configs.recommended,
@@ -22,7 +24,7 @@ export default defineConfig(
       globals: { ...globals.browser, ...globals.node }
     },
     rules: {
-      "no-undef": 'off'
+      'no-undef': 'off'
     }
   },
   {

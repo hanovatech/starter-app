@@ -4,3 +4,10 @@ yarn.lock
 bun.lock
 bun.lockb
 /static/
+
+# Vendored component layers — installed via CLI, do not modify (see CLAUDE.md)
+/src/lib/components/ui/
+/src/lib/components/registry/
+
+# Generated Prisma client
+/src/lib/generated/
