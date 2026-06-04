@@ -7,6 +7,10 @@ on:
 jobs:
   check:
     runs-on: ubuntu-latest
+    # prisma.config.ts resolves the datasource url from DATABASE_URL via env().
+    # generate never connects, so a dummy value is enough to satisfy the resolver.
+    env:
+      DATABASE_URL: postgresql://user:pass@localhost:5432/db
     steps:
       - uses: actions/checkout@v4
 
