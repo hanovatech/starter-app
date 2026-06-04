@@ -36,6 +36,7 @@ SvelteKit 2 + Svelte 5 business application template. Base roles: **ADMIN**, **E
 - `$lib/utils/logger` — pino logger (never use `console.log`)
 - `$lib/utils/postmark` — email client
 - `$lib/utils/s3` — S3 file operations
+- `$lib/utils/dayjs` — dayjs with UTC plugin pre-configured (see [Date Handling](#date-handling))
 
 ## Svelte 5 Rules
 
@@ -137,14 +138,14 @@ import { ArrowLeft } from '@lucide/svelte'; // ❌
 
 ## Date Handling
 
-Always use `moment.utc()` when constructing date boundaries for Prisma queries:
+Use `dayjs` for date manipulation (not moment — it is in maintenance mode). Import the pre-configured singleton from `$lib/utils/dayjs` (UTC plugin already enabled) — never `import dayjs from 'dayjs'` directly. Always use `.utc()` when constructing date boundaries for Prisma queries:
 
 ```ts
-import moment from 'moment';
+import dayjs from '$lib/utils/dayjs';
 
 // ✅ Correct — UTC
-const monthStart = moment.utc().startOf('month').toDate();
-const monthEnd = moment.utc().endOf('month').toDate();
+const monthStart = dayjs.utc().startOf('month').toDate();
+const monthEnd = dayjs.utc().endOf('month').toDate();
 
 // ❌ Wrong — local time
 const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
