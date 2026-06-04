@@ -23,6 +23,10 @@ Base template for all HanovaTech client projects. Contains infrastructure, conve
 
 ## Starting a New Client Project
 
+> **Using an AI agent to bootstrap?** Point it at [`docs/NEW-PROJECT-SETUP.md`](docs/NEW-PROJECT-SETUP.md) —
+> a step-by-step playbook covering the repo settings a template does **not** copy
+> (branch protection, merge method), environment, database, and rebranding.
+
 ### 1. Clone this template
 
 ```bash

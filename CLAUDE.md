@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is the **HanovaTech Starter Template** — the base for all client projects. It contains infrastructure and conventions only, no business-specific code. Business features are added per project, either manually or via the [Feature Registry](https://hanovatech.github.io/feature-registry/).
 
+> **Bootstrapping a new project from this template?** Follow the step-by-step playbook in [`docs/NEW-PROJECT-SETUP.md`](docs/NEW-PROJECT-SETUP.md) first — it covers repo settings (branch protection, merge method), environment, database, and rebranding, none of which a GitHub template copies automatically.
+
 ## Commands
 
 ```bash
