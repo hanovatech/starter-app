@@ -16,6 +16,7 @@ Base template for all HanovaTech client projects. Contains infrastructure, conve
 | Email         | Postmark                                            |
 | Storage       | AWS S3 (presigned uploads)                          |
 | Validation    | Zod                                                 |
+| Dates         | dayjs (UTC)                                         |
 | Logging       | pino                                                |
 | Scheduling    | node-cron                                           |
 | i18n          | Custom store (DE + EN)                              |
@@ -48,9 +49,10 @@ cp .env.example .env
 
 ```bash
 npx prisma migrate dev --name init
-npx prisma generate
 npm run seed
 ```
+
+> The Prisma client is generated automatically by the `postinstall` hook (`svelte-kit sync && prisma generate`), and `prisma migrate dev` regenerates it after schema changes — so you rarely need to run `npx prisma generate` by hand.
 
 ### 5. Start developing
 
@@ -76,7 +78,7 @@ src/
 ├── routes/
 │   ├── (app)/                # Authenticated routes (add your pages here)
 │   │   └── admin/            # Admin-only routes
-│   ├── (public)/             # Public routes (login, legal pages)
+│   ├── (auth)/               # Auth flow pages (login, logout, verify-request)
 │   └── api/                  # REST API endpoints (add your APIs here)
 ├── lib/
 │   ├── components/
@@ -88,7 +90,7 @@ src/
 │   ├── scheduler/            # Cron job scheduler
 │   ├── stores/               # Svelte stores (i18n, user, app mode)
 │   ├── types/                # TypeScript types & Zod schemas
-│   └── utils/                # Singletons (prisma, logger, s3, postmark, auth)
+│   └── utils/                # Singletons (prisma, logger, s3, postmark, auth, dayjs)
 ├── hooks.server.ts           # Auth, locale, route guards
 └── app.html
 prisma/
@@ -121,21 +123,29 @@ prisma/
 - Prisma naming conventions
 - Component layer architecture
 - Logging levels
-- Date handling (UTC-only)
+- Date handling (UTC-only, via dayjs)
+- Git workflow: Conventional + atomic commits, branch → PR into protected `main`, rebase merge
+- CI: GitHub Actions runs lint + type check on every PR
 
 ## Scripts
 
-| Command                | Description                                      |
-| ---------------------- | ------------------------------------------------ |
-| `npm run dev`          | Start dev server (localhost:5173)                |
-| `npm run build`        | Production build to `build/`                     |
-| `npm run check`        | svelte-check type checking                       |
-| `npm run lint`         | Prettier + ESLint                                |
-| `npm run format`       | Auto-format                                      |
-| `npm run seed`         | Seed database                                    |
-| `npm run setup:shadcn` | Reinstall all shadcn + registry components fresh |
+| Command                | Description                                                   |
+| ---------------------- | ------------------------------------------------------------- |
+| `npm run dev`          | Start dev server (localhost:5173)                             |
+| `npm run build`        | Production build to `build/`                                  |
+| `npm run check`        | svelte-check type checking                                    |
+| `npm run lint`         | Prettier + ESLint                                             |
+| `npm run format`       | Auto-format                                                   |
+| `npm run seed`         | Seed database                                                 |
+| `npm run setup:shadcn` | Maintenance only — reinstall all components fresh (see below) |
+
+> **Lifecycle hook:** `postinstall` runs `svelte-kit sync && prisma generate` automatically after every `npm install`, so a fresh clone has generated types and a Prisma client without any extra step. The generated client is gitignored and never committed.
 
 ## Updating Components
+
+All shadcn + registry components are already committed to this repo, so a new
+project from the template has them out of the box — you do **not** need to run
+`setup:shadcn` for setup. The commands below are maintenance only.
 
 ### Reinstall all shadcn components (latest versions)
 
