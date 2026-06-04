@@ -19,6 +19,12 @@ jobs:
           node-version: 22
           cache: npm
 
+      # svelte-kit sync types $env/static/private from the env vars present at
+      # build time. The example file lists every key, which is enough for type
+      # generation (values are irrelevant here).
+      - name: Set up environment
+        run: cp .env.example .env
+
       - name: Install dependencies
         run: npm ci
 
