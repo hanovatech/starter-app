@@ -4,21 +4,21 @@ Base template for all HanovaTech client projects. Contains infrastructure, conve
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | SvelteKit 2 (Svelte 5, runes) |
-| Adapter | `@sveltejs/adapter-node` |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS v4 |
+| Layer         | Technology                                          |
+| ------------- | --------------------------------------------------- |
+| Framework     | SvelteKit 2 (Svelte 5, runes)                       |
+| Adapter       | `@sveltejs/adapter-node`                            |
+| Language      | TypeScript (strict)                                 |
+| Styling       | Tailwind CSS v4                                     |
 | UI Components | shadcn-svelte (nova style) + HanovaTech UI Registry |
-| Database | PostgreSQL + Prisma 7 |
-| Auth | Auth.js (magic-link via Postmark) |
-| Email | Postmark |
-| Storage | AWS S3 (presigned uploads) |
-| Validation | Zod |
-| Logging | pino |
-| Scheduling | node-cron |
-| i18n | Custom store (DE + EN) |
+| Database      | PostgreSQL + Prisma 7                               |
+| Auth          | Auth.js (magic-link via Postmark)                   |
+| Email         | Postmark                                            |
+| Storage       | AWS S3 (presigned uploads)                          |
+| Validation    | Zod                                                 |
+| Logging       | pino                                                |
+| Scheduling    | node-cron                                           |
+| i18n          | Custom store (DE + EN)                              |
 
 ## Starting a New Client Project
 
@@ -125,14 +125,14 @@ prisma/
 
 ## Scripts
 
-| Command | Description |
-|---------|------------|
-| `npm run dev` | Start dev server (localhost:5173) |
-| `npm run build` | Production build to `build/` |
-| `npm run check` | svelte-check type checking |
-| `npm run lint` | Prettier + ESLint |
-| `npm run format` | Auto-format |
-| `npm run seed` | Seed database |
+| Command                | Description                                      |
+| ---------------------- | ------------------------------------------------ |
+| `npm run dev`          | Start dev server (localhost:5173)                |
+| `npm run build`        | Production build to `build/`                     |
+| `npm run check`        | svelte-check type checking                       |
+| `npm run lint`         | Prettier + ESLint                                |
+| `npm run format`       | Auto-format                                      |
+| `npm run seed`         | Seed database                                    |
 | `npm run setup:shadcn` | Reinstall all shadcn + registry components fresh |
 
 ## Updating Components
@@ -176,9 +176,9 @@ When starting a new client project from this template:
 
 ## Related Repositories
 
-| Repo | Purpose |
-|------|---------|
-| [ui-registry](https://github.com/hanovatech/ui-registry) | Reusable UI components (shadcn-style, Layer 2) |
+| Repo                                                               | Purpose                                               |
+| ------------------------------------------------------------------ | ----------------------------------------------------- |
+| [ui-registry](https://github.com/hanovatech/ui-registry)           | Reusable UI components (shadcn-style, Layer 2)        |
 | [feature-registry](https://github.com/hanovatech/feature-registry) | Backend feature templates (Prisma, API routes, types) |
 
 ## License
