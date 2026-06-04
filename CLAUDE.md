@@ -168,6 +168,34 @@ Reusable backend features are available at https://hanovatech.github.io/feature-
 
 Available features: https://hanovatech.github.io/feature-registry/r/index.json
 
+## Commit Conventions
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/). Messages are written in **English**, in the imperative mood.
+
+```
+<type>(<optional scope>): <summary>
+
+<optional body>
+
+<optional footer>
+```
+
+**Types:** `feat`, `fix`, `refactor`, `chore`, `docs`, `style`, `test`, `perf`, `build`, `ci`.
+
+```
+feat(auth): add credentials provider
+fix(api): filter soft-deleted records in resource list
+chore: swap moment for dayjs
+docs: document date handling convention
+```
+
+**Atomic commits** — one logical change per commit. Each commit must build and stay self-consistent on its own; never mix unrelated changes (e.g. a feature + an unrelated bugfix) in the same commit. If a commit would need two types, split it.
+
+- Summary in lower case, no trailing period, ≤ 72 chars
+- Scope is optional — use the affected area (`api`, `auth`, `prisma`, a feature name)
+- Use the body to explain *why*, not *what* (the diff shows the what)
+- Breaking changes: add `!` after the type/scope (`feat(api)!: ...`) or a `BREAKING CHANGE:` footer
+
 ## Keeping This File Up to Date
 
 When making architectural changes, update this file:
